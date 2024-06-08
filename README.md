@@ -1,53 +1,51 @@
-Clone the repository:
+# Image Filtering and Kernel Visualization with OpenCV
 
-git clone https://github.com/yourusername/kernel-visualization.git
-cd kernel-visualization
+This repository contains examples of applying various image filters using OpenCV in Python. The examples demonstrate how to visualize kernels, apply different types of filters, and detect edges in an image.
 
-Install the required libraries:
+## Table of Contents
+- [Overview](#overview)
+- [Setup](#setup)
+- [Usage](#usage)
+- [License](#license)
 
-"pip install numpy matplotlib"
+## Overview
 
-Run the script:
+This project showcases different image processing techniques using OpenCV. It includes:
+- Visualizing custom kernels.
+- Applying averaging filters with different kernel sizes.
+- Using Gaussian filters.
+- Detecting edges using Sobel filters.
 
-"python kernel_visualization.py"
+## Setup
 
-Code Explanation
-The script initializes three kernels and visualizes each one using a function plot_kernel.
+To run the code in this repository, follow these steps:
 
-import numpy as np
-import matplotlib.pyplot as plt
-import os
+1. **Clone the Repository**
+    ```bash
+    git clone https://github.com/your-username/image-filtering-opencv.git
+    cd image-filtering-opencv
+    ```
 
-# Initialize kernels
-check_kernel_01 = np.zeros((3, 3))
-check_kernel_02 = np.zeros((3, 3))
+2. **Install Dependencies**
+    Make sure you have Python and the required libraries installed. You can install the dependencies using pip:
+    ```bash
+    pip install numpy opencv-python matplotlib
+    ```
 
-check_kernel_03 = np.array([[1, 1, 0],
-                            [1, -1, 1],
-                            [0, 0, -1]])
+## Usage
 
-# Ensure the directory to save images exists
-os.makedirs('sample_images', exist_ok=True)
+You can run the provided Python script to see the image filtering and kernel visualization in action.
 
-# Function to plot and save kernel
-def plot_kernel(kernel, title, filename):
-    plt.imshow(kernel, cmap='gray')
-    plt.colorbar()
-    plt.title(title)
-    plt.savefig(f'sample_images/{filename}')
-    plt.show()
+1. **Prepare your image**
+    - Place your image in the `images` directory and update the file path in the script if necessary.
 
-# Plotting and saving the kernels
-plot_kernel(check_kernel_01, 'Kernel with zeros visualization', 'kernel_zeros_01.png')
-plot_kernel(check_kernel_02, 'Kernel with zeros visualization', 'kernel_zeros_02.png')
-plot_kernel(check_kernel_03, 'Custom kernel visualization', 'kernel_custom_03.png')
+2. **Run the script**
+    ```bash
+    python image_filters.py
+    ```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
-Function plot_kernel
-This function takes a kernel and a title as arguments, then uses Matplotlib to display the kernel as a grayscale image with a color bar.
-
-Contributing
-If you have any suggestions or improvements, feel free to create a pull request or open an issue.
-
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
